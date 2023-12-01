@@ -15,5 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_nio.mk
+    $(LOCAL_DIR)/twrp_nio.mk
 
