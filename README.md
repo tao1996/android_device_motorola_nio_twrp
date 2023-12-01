@@ -1,64 +1,19 @@
-# Device Tree for 8T (kebab) for TWRP
-## Disclaimer - Unofficial TWRP!
-These are personal test builds of mine. In no way do I hold responsibility if it/you messes up your device.
-Proceed at your own risk.
+# Device configuration for Motorola Edge S / Moto G100
 
-## Setup repo tool
-Setup repo tool from here https://source.android.com/setup/develop#installing-repo
+## Device specifications
 
-## Compile
+Basic   | Spec Sheet
+-------:|:-------------------------
+CPU     | Octa-core (1x3.2 GHz Kryo 585 & 3x2.42 GHz Kryo 585 & 4x1.8 GHz Kryo 585)
+CHIPSET | Qualcomm SM8250 Snapdragon 870
+GPU     | Adreno 650
+Memory  | 6 / 8 / 12GB
+Shipped Android Version | 11
+Storage | 128 / 256GB
+Battery | 5000 mAh
+Dimensions | 168.4 x 74 x 9.7 mm
+Display | 1080 x 2520 pixels, 6.7" IPS, 90Hz, HDR10
+Rear Camera  | 64 MP (f/1.7) + 16 MP (f/2.2) + 2 MP (f/2.4) + TOF 3D
+Front Camera | 16 MP (f/2.2) + 8 MP (f/2.4)
 
-Sync aosp_r29 manifest:
-
-```
-repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
-
-```
-
-Make a directory named local_manifest under .repo, and create a new manifest file, for example local_manifests.xml
-and then paste the following
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-<remote name="github"
-	fetch="https://github.com/" />
-
-<project path="device/oneplus/kebab"
-	name="theincognito/android_device_oneplus_kebab"
-	remote="github"
-	revision="android-11" />
-</manifest>
-```
-You might need to pick few patches from gerrit.twrp.me to get some stuff working.
-
-Sync the sources with
-
-```
-repo sync -j$(nproc --all)
-```
-
-To build, execute these commands in order
-
-```
-. build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; export LC_ALL=C; lunch aosp_kebab-eng; make -j$(nproc --all) adbd recoveryimage
-```
-
-To test it:
-
-```
-# To temporarily boot it
-fastboot boot out/target/product/kebab/recovery.img 
-
-# Since 8T has a separate recovery partition, you can flash the recovery with
-fastboot flash recovery recovery.img
-```
-
-Kernel: https://github.com/AOSPA/android_kernel_oneplus_sm8250
-
-##### Credits
-- bigbiff for decryption
-- Systemad for original tree
-- CaptainThrowback for original tree
-- mauronofrio for original tree
-- TWRP team
+![Device Picture](https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g100-ofic-01.jpg)

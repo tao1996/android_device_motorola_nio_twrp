@@ -44,12 +44,4 @@ on fs
     # Set fscklog permission
     chown root system /dev/fscklogs/log
     chmod 0770 /dev/fscklogs/log
-    start load_ts_firmware
-
-service load_ts_firmware /vendor/bin/load_ts_firmware.sh
-    user root
-    group root
-    oneshot
-    disabled
-    seclabel u:r:recovery:s0
-
+    insmod /vendor/lib/modules/nova_0flash_mmi.ko
