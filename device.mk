@@ -26,24 +26,6 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # define hardware platform
 PRODUCT_PLATFORM := kona
 
-# A/B support
-AB_OTA_UPDATER := true
-
-# A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device. Note that the vendor can add more
-# more partitions to this list for the bootloader and radio.
-AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    product \
-    recovery \
-    system \
-    system_ext \
-    vbmeta \
-    vbmeta_system \
-    vendor \
-    vendor_boot
-
 PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
